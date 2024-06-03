@@ -25,7 +25,9 @@ function Navbar() {
     }
   }
 
-
+const handleCloseMenu = () => {
+  setMenuActive(false)
+}
 
   function toggleTheme () {
     setIsLight(!isLight)
@@ -74,22 +76,22 @@ function Navbar() {
             </div>
             <ul className={menuActive ? 'nav-items active' : 'nav-items'}  data-aos="fade-down">
                 <li className="nav-item">
-                    <Link to='/' >Home</Link>
+                    <Link to='/' onClick={handleCloseMenu}>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to='/search?category=technology' >Technology</Link>
+                    <Link to='/search?category=technology' onClick={handleCloseMenu}>Technology</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to='/search?category=gadget' >Gadget</Link>
+                    <Link to='/search?category=gadget' onClick={handleCloseMenu}>Gadget</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to='/search?category=software' >Software</Link>
+                    <Link to='/search?category=software' onClick={handleCloseMenu}>Software</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to='/aboutus' >About Us</Link>
+                    <Link to='/aboutus' onClick={handleCloseMenu}>About Us</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to='/contactus' >Contact Us</Link>
+                    <Link to='/contactus' onClick={handleCloseMenu}>Contact Us</Link>
                 </li>
                 <li className="nav-item">
                     {isLoggedIn ? 
@@ -102,12 +104,12 @@ function Navbar() {
                           <p>Welcome Back!</p>
                           <p>User Name</p>
                         </div>
-                        <Link to='admin/dashboard'><i class="fa-solid fa-sliders"></i> Dashboard</Link>
+                        <Link to='admin/dashboard'><i class="fa-solid fa-sliders" onClick={handleCloseMenu}></i> Dashboard</Link>
                         <p onClick={handleLogout}><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
                       </div>
                     </div> 
                     : 
-                    <Link to='/login'>Login</Link>}
+                    <Link to='/login' onClick={handleCloseMenu}>Login</Link>}
                 </li>
             </ul>
         </div>
