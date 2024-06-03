@@ -1,7 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const LinechartBox = (props) => {
-    console.log(props)
+    // console.log(props)
   return (
     <>
       <ResponsiveContainer width="100%" height="100%" maxHeight={"200px"}  >

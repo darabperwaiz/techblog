@@ -15,13 +15,13 @@ function DetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const { data } = await axios.get("http://localhost:4000/api/v1/");
+      const { data } = await axios.get("https://techblog-api-pgym.onrender.com/api/v1/");
       const filter = data.posts.filter((post) => post.slug == slug);
       setPost(...filter);
       setLoading(false);
       axios({
         method: 'put',
-        url: `http://localhost:4000/api/v1/update/${filter[0]._id}`,
+        url: `https://techblog-api-pgym.onrender.com/api/v1/update/${filter[0]._id}`,
         data: {views: filter[0].views + 1}
       })
     };

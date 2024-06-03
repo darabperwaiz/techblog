@@ -4,9 +4,6 @@ import "./CreatePost.css";
 import { editorConfig } from "../../EditorConfig";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-// import { CKEditor } from "@ckeditor/ckeditor5-react";
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-// // import { CodeBlock } from '@ckeditor/ckeditor5-code-block';
 
 const CreatePost = () => {
   const navigate = useNavigate()
@@ -43,7 +40,7 @@ const CreatePost = () => {
     e.preventDefault();
     axios({
       method: 'post',
-      url: 'http://localhost:4000/api/v1/add',
+      url: 'https://techblog-api-pgym.onrender.com/api/v1/add',
       data: post,
       validateStatus: (status) => {
         return true; 

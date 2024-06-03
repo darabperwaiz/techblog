@@ -1,94 +1,3 @@
-// import axios from "axios";
-// import React, { useEffect, useRef, useState } from "react";
-// import { useParams } from "react-router-dom";
-// import { editorConfig } from "../../EditorConfig";
-// import JoditEditor from "jodit-react";
-// import "./EditPage.css";
-
-// const EditPage = () => {
-  // const [post, setPosts] = useState({});
-
-  // const editor = useRef(null);
-  // const { id } = useParams();
-  // const getPost = async () => {
-  //   const {data} = await axios.get(`http://localhost:4000/api/v1/${id}`);
-  //   setPosts(data);
-  // };
-
-  // useEffect(() => {
-  //   getPost();
-  // }, []);
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     console.log(post)
-//   }
-
-//   return (
-//     <div>
-//       <form action="">
-//         <div className="post_____title">
-//           <input
-//             type="text"
-//             name="title"
-//             value={post.title}
-//             placeholder="Enter your post title"
-//             onChange={(e)=> setPosts({...post, title: e.target.value})}
-//           />
-//           <button onClick={handleSubmit}>Update</button>
-//         </div>
-//         <JoditEditor
-//           ref={editor}
-//           value={post.content}
-//           config={editorConfig}
-//           // onChange={handleJoditEditor}
-//         />
-//         <div className="additional_info">
-//           <p>Post SEO</p>
-//           <div className="additional_info__section">
-//             <select name="status" id="">
-//               <option value="Published" selected>
-//                 Publish
-//               </option>
-//               <option value="Unpublished">Unpublish</option>
-//             </select>
-//             <input
-//               type="text"
-//               name="thumbnail"
-//               value={post.thumbnail}
-//               placeholder="Image URL"
-//             />
-//             <div className="update_category">
-//               <textarea
-//                 name="category"
-//                 value={post.category}
-//                 placeholder="Category"
-//               ></textarea>
-//               <label>Seprate categories by commas e.g:- test1,test2</label>
-//             </div>
-//             <div className="update_description">
-//               <textarea
-//                 name="description"
-//                 value={post.description}
-//                 placeholder="Description"
-//                 onChange={(e) => console.log(e.target.value)}
-//               ></textarea>
-//               <label>Maximum 150 characters.</label>
-//             </div>
-//             <input
-//               type="text"
-//               name="slug"
-//               value={post.slug}
-//               placeholder="Slug"
-//             />
-//           </div>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default EditPage;
 
 // ---------------------------------------------------------
 
@@ -105,7 +14,7 @@ const EditPage = () => {
 
   const { id } = useParams();
   const getPost = async () => {
-    const {data} = await axios.get(`http://localhost:4000/api/v1/${id}`);
+    const {data} = await axios.get(`https://techblog-api-pgym.onrender.com/api/v1/${id}`);
     setPost(data);
   };
 
@@ -158,7 +67,7 @@ const EditPage = () => {
 
     axios({
       method: 'put',
-      url: `http://localhost:4000/api/v1/update/${id}`,
+      url: `https://techblog-api-pgym.onrender.com/api/v1/update/${id}`,
       data: newObj,
       validateStatus: (status) => {
         return true; 

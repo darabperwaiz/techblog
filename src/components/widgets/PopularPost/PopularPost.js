@@ -9,7 +9,7 @@ function PopularPost() {
   const [Posts, setPost] = useState([])
   useEffect(()=> {
     const fetchData = async () => {
-      const {data} = await axios.get('http://localhost:4000/api/v1/')
+      const {data} = await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
       // console.log(data.posts)
       const sorted = data.posts.sort((a, b)=> b.views - a.views)
       // console.log(sorted)

@@ -15,7 +15,7 @@ const handleSubmit = async (e) => {
     e.preventDefault()
     await axios({
         method: "post",
-        url: 'http://localhost:4000/api/v1/user/login',
+        url: 'https://techblog-api-pgym.onrender.com/api/v1/user/login',
         data: {email, password}
     }).then(res=> {
         console.log(res.data.token)

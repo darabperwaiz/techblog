@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   useEffect(()=> {
     const fetchData = async ()=> {
-      const {data} = await axios.get('http://localhost:4000/api/v1/')
+      const {data} = await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
       setPosts(data.posts)
     }
     fetchData()

@@ -17,7 +17,7 @@ const showDeleteConfirm = (id) => {
       console.log('OK');
       axios({
         method: 'delete',
-        url: `http://localhost:4000/api/v1/delete/${id}`,
+        url: `https://techblog-api-pgym.onrender.com/api/v1/delete/${id}`,
         // data: status,
         validateStatus: (status) => {
           return true; 

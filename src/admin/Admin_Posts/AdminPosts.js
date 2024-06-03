@@ -18,7 +18,7 @@ const AdminPosts = () => {
   const statushandle = (id, status) => {
     axios({
       method: 'post',
-      url: `http://localhost:4000/api/v1/status/${id}`,
+      url: `https://techblog-api-pgym.onrender.com/api/v1/status/${id}`,
       data: status,
       validateStatus: (status) => {
         return true; 
@@ -33,7 +33,7 @@ const AdminPosts = () => {
  
   useEffect(()=> {
     const fetchData = async () => {
-      const data = await axios.get('http://localhost:4000/api/v1/')
+      const data = await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
       setPosts(data.data.posts)
 
     }

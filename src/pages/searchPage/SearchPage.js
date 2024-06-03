@@ -20,7 +20,7 @@ const SearchPage = () => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:4000/api/v1/filter?category=${category.toLowerCase()}`
+          `https://techblog-api-pgym.onrender.com/api/v1/filter?category=${category.toLowerCase()}`
         );
         console.log(data);
         setPosts(data);

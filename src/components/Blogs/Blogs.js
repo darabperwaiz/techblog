@@ -11,7 +11,7 @@ const [Posts, setPosts] = useState([])
 
   useEffect(()=> {
     const getPosts = async () => {
-      await axios.get('http://localhost:4000/api/v1/')
+      await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
       .then(res => {
         const result = res.data
         // console.log(result.posts)
