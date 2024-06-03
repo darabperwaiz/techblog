@@ -1,0 +1,19 @@
+.detailPage {
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto;
+    gap: 10px;
+}
+
+.post__detail {
+    display: flex;
+    flex-direction:  column;
+    flex: 0 0 70%;
+    gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .detailPage {
+        flex-direction: column;
+    }
+}

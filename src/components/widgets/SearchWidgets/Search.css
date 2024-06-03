@@ -1,0 +1,28 @@
+.search {
+    position: relative;
+    border: 2px solid #c8c8c8;
+}
+
+.search input {
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 10px 50px 10px 10px;
+}
+
+.search__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--tag-font-color);
+    color: #fff;
+    height: 100%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search__icon a {
+    color: #fff;
+}

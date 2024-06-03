@@ -1,0 +1,117 @@
+.create__post__form {
+    width: 100%;
+}
+
+.create__post__form form {
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    /* flex-wrap: wrap; */
+}
+
+.create-post-form-left {
+    flex: 0 0 75%;
+    height: 100dvh;
+}
+
+.create-post-form-right {
+    display: flex;
+    flex: 0 0 25%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title__wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid #999;
+    margin-bottom: 10px;
+}
+
+input.title {
+    width: 100%;
+    padding: 15px;
+    font-size: 22px;
+    border: none;
+}
+
+input.title:focus {
+    border: none;
+    outline: none;
+}
+
+.title__wrapper:has(.title:focus) {
+    border-bottom: 2px solid #00a32b;
+}
+
+.submit-btn  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 35px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+
+.seo__section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.seo__section textarea {
+    resize: none;
+}
+
+.seo__category, .seo__description {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.seo__category textarea {
+    height: 50px;
+    padding: 5px;
+}
+
+.seo__category label, .seo__description label {
+    font-size: 12px;
+    color: #888;
+}
+
+.seo__description textarea {
+    height: 90px;
+    padding: 5px;
+}
+
+.seo__slug {
+    padding: 5px;
+}
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+    .create__post__form form {
+        flex-direction: column;
+    }
+
+    .create-post-form-left {
+        flex: 0 0 100%;
+    }
+}

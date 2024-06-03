@@ -1,0 +1,132 @@
+.__wrapper  {
+}
+
+.post__detail {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.post__detail__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.post__detail__title {
+    font-size: 50px;
+    color: var(--primary-font-color);
+    transition: all 0.5s ease-in-out;
+}
+
+.post__detail__section {
+    display: flex;
+    gap: 5px;
+    color: var(--secondry-font-color);
+    font-size: 13px;
+    transition: all 0.5s ease-in-out;
+}
+
+.post__detail__section>span:nth-child(1) {
+    color: var(--primary-font-color);
+    transition: all 0.5s ease-in-out;
+}
+
+
+.post__detail p {
+    color: var(--primary-font-color);
+    line-height: 2;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.post__detail img {
+    width: 100%;
+    object-fit: cover;
+    /* aspect-ratio: 2/1; */
+}
+
+.post__detail blockquote {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-style: italic;
+    /* border: 1px solid var(--secondry-font-color); */
+}
+
+.post__detail blockquote p {
+    line-height: 1.5;
+}
+
+.post__detail blockquote cite {
+    font-size: 18px;
+    color: var(--secondry-font-color);
+    position: relative;
+}
+
+.post__detail blockquote::before {
+    content: '\f10d';
+    font-family: FontAwesome;
+    font-size: 50px;
+    color: var(--primary-font-color);
+}
+
+.post__detail blockquote cite::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background-color: var(--secondry-font-color);
+    position: absolute;
+    top: -10px;
+    left: 0;
+}
+
+
+.post__detail ul, ol {
+    margin-left: 50px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--primary-font-color);
+
+}
+
+.post__detail ul li {
+    list-style:disc;
+    color: var(--primary-font-color);
+    transition: all 0.5s ease-in-out;
+
+}
+
+.post__detail ul li::marker, ol li::marker {
+    color: var(--tag-font-color);
+    transition: all 0.5s ease-in-out;
+}
+
+.post__detail a {
+    text-decoration: none;
+    color:var(--tag-font-color);
+    transition: all 0.5s ease-in-out;
+}
+
+.post__detail a:hover {
+    color: orange;
+    transition: all 0.5s ease-in-out;
+} 
+
+
+.post__detail h1, h2, h3, h4 ,h5,h6 {
+    color: var(--primary-font-color);
+    transition: all 0.5s ease-in-out;
+}
+
+.prev_nxt_btns {
+    display: flex;
+    justify-content: space-between;
+}

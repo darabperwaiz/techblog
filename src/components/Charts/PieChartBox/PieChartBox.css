@@ -1,0 +1,31 @@
+
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.option_title {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.option_title span {
+    font-size: 14px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+

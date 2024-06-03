@@ -1,0 +1,19 @@
+.main-container {
+    /* background-color: red; */
+    padding: 5px;
+}
+
+.container__wrapper {
+    /* background-color: purple; */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
+
+
+@media screen and (max-width:768px) {
+    .container__wrapper {
+        flex-direction: column;
+    }
+}
+

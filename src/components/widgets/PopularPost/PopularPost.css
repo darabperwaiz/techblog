@@ -1,0 +1,75 @@
+.popular__posts {
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+  gap: 10px;
+}
+
+.head {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary-font-color);
+  transition: all 0.5s ease-in-out;
+}
+
+.popular__posts_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popular__post {
+  /* background-color: purple; */
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.popular__post__img {
+  width: 90px;
+}
+
+.popular__post_info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.popular__post__title {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.popular__post__title a {
+  text-decoration: none;
+  color: var(--primary-font-color);
+  transition: all 0.5s ease-in-out;
+
+}
+
+.popular__post__date {
+  font-size: 11px;
+  color: var(--secondry-font-color);
+  transition: all 0.5s ease-in-out;
+}
+
+.popular__post_count {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: var(--bg);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-font-color);
+    font-size: 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.5s ease-in-out;
+}

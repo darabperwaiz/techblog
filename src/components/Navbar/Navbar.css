@@ -1,0 +1,235 @@
+.navbar {
+    width: 100%;
+    background-color: var(--navbar-bg);
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #fff;
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.nav__right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    color: #fff;
+}
+
+
+
+.theme-toggle {
+    position: relative;
+    
+    background-color: rgb(255, 132, 0);
+    display: flex;
+    width: 50px;
+    height: 25px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 13px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.674) inset;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.theme-toggle.active {
+    background-color:  var(--tag-font-color);
+    
+}
+
+
+.theme-toggle-btn {
+    position: absolute;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    transform: translateX(3px);
+    border-radius: 20px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.theme-toggle-btn.active {
+    transform: translateX(28px);
+}
+
+.mobile-icon {
+    font-size: 22px;
+    color: white;
+    display: none;
+}
+
+.nav-items {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    width: 70%;
+    justify-content: flex-end;
+    z-index: 2;
+
+}
+
+.nav-item {
+    height: 100%;
+    /* background-color: purple; */
+}
+
+.nav-item > a {
+    text-decoration: none;
+    padding: 5px 10px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
+
+}
+
+.nav-item a::after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-bottom: solid 5px #fff;
+    transform: scaleX(0);
+    transform-origin:100% 50%;
+    transition: transform 250ms ease-in-out;
+}
+
+.nav-item a:hover::after {
+    transform-origin:0% 50%;
+    transform: scaleX(1);
+}
+
+.user__icon__wrapper  {
+    /* background-color: red; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    position: relative;
+
+}
+
+.user_img {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.user_img img {
+    width: 25px;
+}
+
+.user__info__ {
+    position: absolute;
+    background-color: #fff;
+    top: 60px;
+    opacity: 0;
+    transform: translateY(40px);
+    width: max-content;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.user__info__ a {
+    text-decoration: none;
+    color: #242424;
+}
+
+.user__info__ p {
+    cursor: pointer;
+    color: #242424;
+}
+
+.user__icon__wrapper:hover> .user__info__ {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.user__welcome_ {
+    border-bottom: 1px solid rgb(229, 229, 229);
+    padding-bottom: 5px;
+}
+
+.user__welcome_ p:nth-child(2) {
+    font-size: 13px;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-icon {
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+
+    .navbar__wrapper {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .nav-items {
+        position: fixed;
+        flex-direction: column;
+        background-color: black;
+        top: 60px;
+        width: 100%;
+        left: -100%;
+        opacity: 0;
+        justify-content: flex-start;
+        transition: all 0.5s ease-in-out;
+        
+    }
+
+    .nav-items.active {
+        left: 0;
+        opacity: 1;
+        z-index: 2;
+        
+    }
+
+    .nav-item {
+        height: 10%;
+    }
+
+    .nav-item a:hover {
+        background-color: #242424;
+    }
+
+    .nav-item a::after {
+        border-bottom: none;
+    }
+
+}

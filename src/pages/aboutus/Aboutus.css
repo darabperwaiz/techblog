@@ -1,0 +1,12 @@
+.aboutUs__container {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__hero__container {
+    color: var(--primary-font-color);
+    font-size: 30px;
+}
