@@ -12,7 +12,7 @@
 
 .create-post-form-left {
     flex: 0 0 75%;
-    height: 100dvh;
+    /* height: 100dvh; */
 }
 
 .create-post-form-right {
