@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './Post.css'
 import { Link } from "react-router-dom"
-import RelatedPost from "../RelatedPost.js/RelatedPost"
+import RelatedPost from "../RelatedPost/RelatedPost"
 
 function Post({post}) {
 

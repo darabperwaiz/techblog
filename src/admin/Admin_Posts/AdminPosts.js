@@ -5,47 +5,42 @@ import { Link } from "react-router-dom"
 import "./AdminPost.css"
 import showDeleteConfirm from "../DeleteDialogBox"
 import EditModal from "../EditModal"
+import AdminPost from "./AdminPost"
 
 const AdminPosts = () => {
 
   const [Posts, setPosts] = useState([])
+  const [statusChange, setStatusChange] = useState({})
 
   const deletePostHandler = (id) => {
     showDeleteConfirm(id)
   }
 
-
-  const statushandle = (id, status) => {
-    axios({
-      method: 'post',
-      url: `https://techblog-api-pgym.onrender.com/api/v1/status/${id}`,
-      data: status,
-      validateStatus: (status) => {
-        return true; 
-      },
-    }).catch(error => {
-        console.log(error);
-    }).then(response => {
-        console.log(response);
-    });
-
-  }
+  // console.log(statusChange)
  
   useEffect(()=> {
     const fetchData = async () => {
-      const data = await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
-      setPosts(data.data.posts)
+      try {
+        const data = await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
+        setPosts(data.data.posts)
+      } catch (error) {
+        console.log(error)
+      }
 
     }
     fetchData()
-  },[statushandle])
+  },[statusChange])
 
   
 
   return (
     <div className="admin__posts_wrapper">
-      <div className="table__wrapper">
-        <table>
+      <div className="posts_list">
+        
+        {Posts.map((post)=> (
+          <AdminPost post={post} statusChange={statusChange} setStatusChange={setStatusChange} deletePostHandler={deletePostHandler}/>
+        ))}
+        {/* <table>
           <thead>
             <tr>
               <th>Title</th>
@@ -71,12 +66,12 @@ const AdminPosts = () => {
               
               <i className="fa-solid fa-trash" onClick={()=> deletePostHandler(post._id)}></i>
               </td>
-              <td>{post.status == 'Published' ? <p style={{color: 'grey', cursor: 'not-allowed'}}>Publish</p> : <p style={{color: '#03c803', cursor: 'pointer'}} onClick={()=>statushandle(post._id, {status: 'Published'})}>Publish</p>}</td>
+              <td>{post.status == 'Published' ? <p style={{color: 'grey', cursor: 'not-allowed'}}>Publish</p> : <p style={{color: '#03c803', cursor: 'pointer'}} </td>
               <td>{post.status == 'Unpublished' ? <p style={{color: 'grey', cursor: 'not-allowed'}}>Unpublish</p> : <p style={{color: "#ff4545", cursor: 'pointer'}} onClick={()=>statushandle(post._id, {status: 'Unpublished'})}>Unpublish</p>}</td>
             </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
       </div>
     </div>
   )

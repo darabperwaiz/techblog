@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./PopularPost.css";
-import { Posts } from "../../../Posts";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -9,11 +8,13 @@ function PopularPost() {
   const [Posts, setPost] = useState([])
   useEffect(()=> {
     const fetchData = async () => {
-      const {data} = await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
-      // console.log(data.posts)
+      try {
+        const {data} = await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
       const sorted = data.posts.sort((a, b)=> b.views - a.views)
-      // console.log(sorted)
       setPost(sorted)
+      } catch (error) {
+        console.log(error)
+      }
     }
     fetchData()
   }, [])
@@ -24,7 +25,7 @@ function PopularPost() {
         {Posts.filter((post)=> post.status == 'Published').map(
           (post, index) =>
             index < 5 && (
-              <div className="popular__post" key={index} data-aos="fade-left">
+              <div className="popular__post" key={index} data-aos="fade-up">
                 <img
                   className="popular__post__img"
                   src={post.thumbnail}

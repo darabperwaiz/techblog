@@ -7,7 +7,9 @@ import 'aos/dist/aos.css';
 function HeroSection() {
 
   return (
+    <><p style={{fontSize: "30px", color: "var(--primary-font-color)"}}>Featured Post</p>
     <div className="Hero-Section">
+      
       <div className="hero__wrapper">
         <img src="/images/img-8.jpg" alt="" loading="lazy"/>
         <div className="hero__info">
@@ -34,6 +36,7 @@ function HeroSection() {
       </div>
       
     </div>
+    </>
   );
 }
 

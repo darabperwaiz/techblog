@@ -6,6 +6,7 @@ import Widgets from "../../components/widgets/Widgets";
 import Post from "../../components/Post/Post";
 import { PostContext } from "../../PostContext/UserContext";
 import axios from "axios";
+import Spinner from "../../components/Spinner/Spinner";
 
 function DetailPage() {
   const [loading, setLoading] = useState(false);
@@ -30,11 +31,13 @@ function DetailPage() {
     document.documentElement.scrollTop = 0;
   },  [slug]);
 
-  {loading && <div>Loading...</div>}
 
   return (
     <div className="detailPage">
-      <Post post={post} />
+      {loading ? <Spinner /> :
+        <Post post={post} />
+      }
+      
       <Widgets />
     </div>
   );

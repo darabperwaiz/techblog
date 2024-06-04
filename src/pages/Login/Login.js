@@ -2,32 +2,34 @@ import axios from "axios"
 import React, { useContext, useState } from 'react'
 import { UserContext } from "../../PostContext/UserContext"
 import './Login.css'
+import Spin from "../../components/Spin/Spin"
 
 const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [error, setError] = useState('')
-
-    const dispatch = useContext(UserContext)
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
 const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     await axios({
         method: "post",
         url: 'https://techblog-api-pgym.onrender.com/api/v1/user/login',
         data: {email, password}
     }).then(res=> {
-        console.log(res.data.token)
         const token = res.data.token
         localStorage.setItem("token", token);
+        // setLoading(false)
         window.location.href = '/'
       //  return <Navigate to='/' replace={true}/>
     }).catch(err=> {
-        console.log(err.response.data.message)
+        setLoading(false)
         setError(err.response.data.message)
         setEmail("")
         setPassword("")
+
     })
 }
   return (
@@ -39,9 +41,9 @@ const handleSubmit = async (e) => {
         </div>
         <form className="login__form" onSubmit={handleSubmit}>
           {!error == "" ? <p style={{color: "red"}}><i class="fa-solid fa-circle-exclamation"></i> {error}</p> : null }
-          <input type="text" value={email} name="email" placeholder="Email" onChange={(e)=> setEmail(e.target.value)}/>
-          <input type="password" value={password} name="password" placeholder="Password" onChange={(e)=> setPassword(e.target.value)}/>
-          <button type="submit">Login</button>
+          <input type="text" value={email} name="email" placeholder="Email" onChange={(e)=> setEmail(e.target.value)} required/>
+          <input type="password" value={password} name="password" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} required/>
+          <button type="submit">{loading ? <Spin /> : 'Login'}</button>
         </form>
       </div>
     </div>

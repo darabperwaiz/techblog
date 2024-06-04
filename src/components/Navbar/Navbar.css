@@ -69,11 +69,6 @@
     transform: translateX(28px);
 }
 
-.mobile-icon {
-    font-size: 22px;
-    color: white;
-    display: none;
-}
 
 .nav-items {
     display: flex;
@@ -120,8 +115,33 @@
     transform: scaleX(1);
 }
 
+.mobile_icon_wrapper {
+    display: flex;
+    gap: 20px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.mobile a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.mobile_icon_wrapper {
+    display: none;
+}
+
+.mobile-icon {
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
 .user__icon__wrapper  {
-    /* background-color: red; */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -149,50 +169,79 @@
 
 .user__info__ {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--bg);
     top: 60px;
     opacity: 0;
+    visibility: hidden;
     transform: translateY(40px);
     width: max-content;
     padding: 8px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
 }
 
 .user__info__ a {
     text-decoration: none;
-    color: #242424;
+    color: var(--primary-font-color);
 }
 
-.user__info__ p {
+.user__info__> p {
     cursor: pointer;
-    color: #242424;
+    color: var(--primary-font-color);
+
 }
 
-.user__icon__wrapper:hover> .user__info__ {
+.user__icon__wrapper:hover  .user__info__ {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0);
+
 }
-
-
 
 .user__welcome_ {
     border-bottom: 1px solid rgb(229, 229, 229);
-    padding-bottom: 5px;
+    padding-bottom: 15px;
+    color: var(--primary-font-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-direction: column;
 }
 
 .user__welcome_ p:nth-child(2) {
-    font-size: 13px;
+    font-size: 16px;
 }
 
-@media screen and (max-width: 768px) {
-    .mobile-icon {
+.user__item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+
+
+.user__item:hover {
+    background-color: #e6e6e6;
+    color: #242424;
+}
+
+@media screen and (max-width: 900px) {
+    .user_img {
+        width: 35px;
+        height: 35px;
+    }
+    .desktop {
+        display: none;
+    }
+    .mobile_icon_wrapper {
         display: flex;
-        justify-content: flex-end;
-        cursor: pointer;
+        justify-content: center;
+        align-items: center;
     }
 
     .navbar__wrapper {

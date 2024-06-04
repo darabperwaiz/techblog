@@ -5,18 +5,24 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios'
 import BlogBox from "../BlogBox";
+import ClipLoader from "react-spinners/ClipLoader";
+import Skleton from "../skleton/Skleton";
 
 function Blogs() {
 const [Posts, setPosts] = useState([])
+const [loading, setLoading] = useState(false)
 
   useEffect(()=> {
     const getPosts = async () => {
-      await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
-      .then(res => {
-        const result = res.data
-        // console.log(result.posts)
-          setPosts(result.posts)
-      })
+      
+      try {
+        setLoading(true)
+        const {data} = await axios.get('https://techblog-api-pgym.onrender.com/api/v1/')
+        setPosts(data.posts)
+        setLoading(false)
+      } catch (error) {
+        console.log(error)
+      }
     } 
     getPosts()
   }, [])
@@ -27,9 +33,13 @@ const [Posts, setPosts] = useState([])
         Recent Posts <i className="fa-solid fa-rss"></i>
       </p>
       <div className="posts__container">
-      {Posts.filter((post)=> post.status == 'Published').reverse().map((post, index) => (
+      {loading ?<> <Skleton /> <Skleton /> <Skleton /> </>  :
+      <>
+        {Posts.filter((post)=> post.status == 'Published').reverse().map((post, index) => (
           <BlogBox post={post} key={index}/>
-        ))}
+        ))}</>
+      }
+      
       </div>
     </div>
   );

@@ -8,8 +8,8 @@ import Footer from "../Footer/Footer";
 
 function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
-  const [isLight, setIsLight] = useState(true)
-  const [theme, setTheme] = useState("light-theme")
+  const [isLight, setIsLight] = useState(false)
+  const [theme, setTheme] = useState("dark-theme")
   const [user, setUser] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
@@ -54,8 +54,6 @@ const handleCloseMenu = () => {
       once: true,
     });
   })
-
-  console.log(user)
   
   return (
     <>
@@ -71,8 +69,29 @@ const handleCloseMenu = () => {
             <div className={isLight ? "theme-toggle-btn": "theme-toggle-btn active"} onClick={toggleTheme}></div>
             </div>
             </div>
-            <div className="mobile-icon" onClick={handleMenu}>
-            {menuActive ? 'X' : <i className="fa-solid fa-bars-staggered"></i>}
+            <div className="mobile_icon_wrapper">
+            <div className="mobile">
+              {isLoggedIn ? 
+                    <div className="user__icon__wrapper">
+                      <div className="user_img">
+                        <img src="https://cdn.icon-icons.com/icons2/3514/PNG/512/man_person_avatar_user_profile_icon_221064.png" alt="" />
+                      </div>
+                      <div className="user__info__">
+                        <div className="user__welcome_">
+                          <p>Welcome Back!</p>
+                          <p>{user.firstName}</p>
+                        </div>
+                        <Link to='admin/dashboard' className="user__item"><i class="fa-solid fa-sliders" onClick={handleCloseMenu}></i> Dashboard</Link>
+                        <p onClick={handleLogout} className="user__item"><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
+                      </div>
+                    </div> 
+                    : 
+                    <Link to='/login' onClick={handleCloseMenu}>Login</Link>
+                    }
+              </div>
+              <div className="mobile-icon" onClick={handleMenu}>
+              {menuActive ? 'X' : <i className="fa-solid fa-bars-staggered"></i>}
+              </div>
             </div>
             <ul className={menuActive ? 'nav-items active' : 'nav-items'}  data-aos="fade-down">
                 <li className="nav-item">
@@ -93,7 +112,7 @@ const handleCloseMenu = () => {
                 <li className="nav-item">
                     <Link to='/contactus' onClick={handleCloseMenu}>Contact Us</Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item desktop">
                     {isLoggedIn ? 
                     <div className="user__icon__wrapper">
                       <div className="user_img">
@@ -102,14 +121,15 @@ const handleCloseMenu = () => {
                       <div className="user__info__">
                         <div className="user__welcome_">
                           <p>Welcome Back!</p>
-                          <p>User Name</p>
+                          <p>{user.firstName}</p>
                         </div>
-                        <Link to='admin/dashboard'><i class="fa-solid fa-sliders" onClick={handleCloseMenu}></i> Dashboard</Link>
-                        <p onClick={handleLogout}><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
+                        <Link to='admin/dashboard' className="user__item"><i class="fa-solid fa-sliders" onClick={handleCloseMenu}></i> Dashboard</Link>
+                        <p onClick={handleLogout} className="user__item"><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
                       </div>
                     </div> 
                     : 
-                    <Link to='/login' onClick={handleCloseMenu}>Login</Link>}
+                    <Link to='/login' onClick={handleCloseMenu}>Login</Link>
+                    }
                 </li>
             </ul>
         </div>

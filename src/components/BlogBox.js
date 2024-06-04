@@ -16,7 +16,7 @@ const BlogBox = ({post}) => {
                   <p>{post.category[0]}</p>
                   <p>{post.date}</p>
                 </div>
-              <p className="post__title" data-aos="fade-left">
+              <p className="post__title" data-aos="fade-up">
                 <Link to={`/post/${post.slug}`}>
                 {post.title}
                 </Link>
