@@ -6,11 +6,13 @@ import JoditEditor from "jodit-react";
 import { editorConfig } from "../../EditorConfig";
 import axios from 'axios'
 import { useNavigate, useParams } from "react-router-dom";
+import Seo from "../../components/SEO/Seo";
 
 const EditPage = () => {
   const navigate = useNavigate()
   const editor = useRef(null);
   const [post, setPost] = useState({})
+  const url = window.location.href
 
   const { id } = useParams();
   const getPost = async () => {
@@ -84,6 +86,14 @@ const EditPage = () => {
 
   return (
     <div className="create__post__form">
+      <Seo
+        title="Edit Blog"
+        description="Resources to Help Product Teams Ship Amazing Digital Experiences"
+        name="TechBlog"
+        type="website"
+        keywords='html, css, javascript, react, nodejs, mongodb, express'
+        url={url}
+      />
       <p>Edit Post</p>
       <form>
         <div className="create-post-form-left">

@@ -25,10 +25,10 @@ function Post({post}) {
         <div dangerouslySetInnerHTML={{__html: post.content}}></div>
         
     </div>
-    <div className="prev_nxt_btns">
+    {/* <div className="prev_nxt_btns">
       <div>previous</div>
       <div>next</div>
-    </div>
+    </div> */}
     <RelatedPost />
     </div>
   )

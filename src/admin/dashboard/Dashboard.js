@@ -4,10 +4,12 @@ import {barChartBoxVisit} from './BarChartData'
 import LinechartBox from "../../components/Charts/LineChartBox/LinechartBox";
 import PieChartBox from "../../components/Charts/PieChartBox/PieChartBox";
 import axios from "axios";
+import Seo from "../../components/SEO/Seo";
 
 const Dashboard = () => {
 
   const [Posts, setPosts] = useState([])
+  const url = window.location.href
 
   useEffect(()=> {
     const fetchData = async ()=> {
@@ -18,6 +20,14 @@ const Dashboard = () => {
   },[])
   return (
     <div className="dashboard__wrapper">
+       <Seo
+        title="Admin - Dashboard"
+        description="Resources to Help Product Teams Ship Amazing Digital Experiences"
+        name="TechBlog"
+        type="website"
+        keywords='html, css, javascript, react, nodejs, mongodb, express'
+        url={url}
+      />
     <div className="Dashboard">
       <div className="dashboard__breadcrumb">
         <h4>Dashboard</h4>

@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import { UserContext } from "../../PostContext/UserContext"
 import './Login.css'
 import Spin from "../../components/Spin/Spin"
+import Seo from "../../components/SEO/Seo"
 
 const Login = () => {
 
@@ -10,6 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const url = window.location.href
 
 const handleSubmit = async (e) => {
     e.preventDefault()
@@ -34,6 +36,14 @@ const handleSubmit = async (e) => {
 }
   return (
     <div className="login_container">
+       <Seo
+        title="Login"
+        description="Resources to Help Product Teams Ship Amazing Digital Experiences"
+        name="TechBlog"
+        type="website"
+        keywords='html, css, javascript, react, nodejs, mongodb, express'
+        url={url}
+      />
       <div className="login__wrapper">
         <div className="login_welcome__message">
           <p>Hello,</p>

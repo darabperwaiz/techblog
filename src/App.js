@@ -15,6 +15,7 @@ import Login from "./pages/Login/Login";
 import { useState } from "react";
 import Aboutus from "./pages/aboutus/Aboutus";
 import Contactus from "./pages/contactus/Contactus";
+import { HelmetProvider } from "react-helmet-async";
 
 
 const PrivateRoute = ({children}) => {
@@ -83,11 +84,11 @@ function App() {
   let [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <UserProvider>
+    <HelmetProvider>
       <div className="App">
       <RouterProvider router={router} />
     </div>
-    </UserProvider>
+    </HelmetProvider>
     
   );
 }

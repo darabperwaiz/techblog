@@ -6,11 +6,13 @@ import "./AdminPost.css"
 import showDeleteConfirm from "../DeleteDialogBox"
 import EditModal from "../EditModal"
 import AdminPost from "./AdminPost"
+import Seo from "../../components/SEO/Seo"
 
 const AdminPosts = () => {
 
   const [Posts, setPosts] = useState([])
   const [statusChange, setStatusChange] = useState({})
+  const url = window.location.href
 
   const deletePostHandler = (id) => {
     showDeleteConfirm(id)
@@ -35,6 +37,14 @@ const AdminPosts = () => {
 
   return (
     <div className="admin__posts_wrapper">
+       <Seo
+        title="Admin - Posts"
+        description="Resources to Help Product Teams Ship Amazing Digital Experiences"
+        name="TechBlog"
+        type="website"
+        keywords='html, css, javascript, react, nodejs, mongodb, express'
+        url={url}
+      />
       <div className="posts_list">
         
         {Posts.map((post)=> (

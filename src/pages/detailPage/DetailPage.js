@@ -7,10 +7,12 @@ import Post from "../../components/Post/Post";
 import { PostContext } from "../../PostContext/UserContext";
 import axios from "axios";
 import Spinner from "../../components/Spinner/Spinner";
+import Seo from "../../components/SEO/Seo";
 
 function DetailPage() {
   const [loading, setLoading] = useState(false);
   const [post, setPost] = useState([]);
+  const url = window.location.href
   const { slug } = useParams();
 
   useEffect(() => {
@@ -34,6 +36,14 @@ function DetailPage() {
 
   return (
     <div className="detailPage">
+      <Seo
+        title={post.title}
+        description={post.description}
+        name="TechBlog"
+        type="website"
+        keywords='html, css, javascript, react, nodejs, mongodb, express'
+        url={url}
+      />
       {loading ? <Spinner /> :
         <Post post={post} />
       }

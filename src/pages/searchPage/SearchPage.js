@@ -6,10 +6,12 @@ import BlogBox from "../../components/BlogBox";
 import PopularPost from "../../components/widgets/PopularPost/PopularPost";
 import Search from "../../components/widgets/SearchWidgets/Search";
 import Spinner from "../../components/Spinner/Spinner";
+import Seo from "../../components/SEO/Seo";
 
 const SearchPage = () => {
   const { search } = useLocation();
   const query = new URLSearchParams(search);
+  const url = window.location.href
   const category = query.get("category");
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -47,6 +49,14 @@ const SearchPage = () => {
 
   return (
     <div className="search__container">
+       <Seo
+        title={`You searched for ${category}`}
+        description="Resources to Help Product Teams Ship Amazing Digital Experiences"
+        name="TechBlog"
+        type="website"
+        keywords='html, css, javascript, react, nodejs, mongodb, express'
+        url={url}
+      />
       <div className="search_container__wrapper">
         {error.success == false ? <p>({posts.length}) Posts Found</p> : ""}
 

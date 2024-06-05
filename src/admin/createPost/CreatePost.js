@@ -4,9 +4,11 @@ import "./CreatePost.css";
 import { editorConfig } from "../../EditorConfig";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+import Seo from "../../components/SEO/Seo";
 
 const CreatePost = () => {
   const navigate = useNavigate()
+  const url = window.location.href
   const editor = useRef(null);
   const [post, setPost] = useState({
     title: "",
@@ -49,6 +51,7 @@ const CreatePost = () => {
         console.log(error);
     }).then(response => {
         console.log(response);
+        
     });
 
     navigate("/admin/posts")
@@ -63,6 +66,14 @@ const CreatePost = () => {
   };
   return (
     <div className="create__post__form">
+       <Seo
+        title="Admin - Create Post"
+        description="Resources to Help Product Teams Ship Amazing Digital Experiences"
+        name="TechBlog"
+        type="website"
+        keywords='html, css, javascript, react, nodejs, mongodb, express'
+        url={url}
+      />
       <form>
         <div className="create-post-form-left">
           <div className="title__wrapper">

@@ -2,12 +2,22 @@ import React from 'react'
 import './Admin.css'
 import AdminNavbar from "../../admin/admin_nav/AdminNavbar"
 import { useLocation } from "react-router-dom"
+import Seo from "../../components/SEO/Seo"
 
 const Admin = () => {
   const {pathname} = useLocation();
   const actualPath = pathname.split('/').pop()
+  const url = window.location.href
   return (
     <div className="admin__container">
+       <Seo
+        title="Admin"
+        description="Resources to Help Product Teams Ship Amazing Digital Experiences"
+        name="TechBlog"
+        type="website"
+        keywords='html, css, javascript, react, nodejs, mongodb, express'
+        url={url}
+      />
         <AdminNavbar />
         {actualPath == 'admin' && 
           <div className="welcome__message">
