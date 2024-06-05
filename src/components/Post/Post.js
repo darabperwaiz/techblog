@@ -29,7 +29,7 @@ function Post({post}) {
       <div>previous</div>
       <div>next</div>
     </div> */}
-    <RelatedPost />
+    <RelatedPost id={post._id} postCategory={post.category}/>
     </div>
   )
 }
