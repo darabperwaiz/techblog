@@ -86,7 +86,7 @@
 }
 
 .post__detail ul,
-ol {
+.post__detail ol {
   /* margin-left: 50px; */
   padding-left: 40px;
   display: flex;
@@ -109,7 +109,7 @@ ol {
 }
 
 .post__detail ul li::marker,
-ol li::marker {
+.post__detail ol li::marker {
   color: var(--tag-font-color);
   transition: all 0.5s ease-in-out;
 }
@@ -126,11 +126,11 @@ ol li::marker {
 }
 
 .post__detail h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.post__detail h2,
+.post__detail h3,
+.post__detail h4,
+.post__detail h5,
+.post__detail h6 {
   color: var(--primary-font-color);
   transition: all 0.5s ease-in-out;
 }
