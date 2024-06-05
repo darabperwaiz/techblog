@@ -100,6 +100,7 @@
   padding: 25px;
   color: var(--primary-font-color);
   border-radius: 10px;
+  overflow-x: auto;
 }
 
 .post__detail ul li {
