@@ -24,11 +24,11 @@ const RelatedPost = ({postCategory, id}) => {
       <div className="related_post_container">
         {posts.filter((post)=> post.category.includes(postCategory[0]) && post._id !== id).map((post, index)=>  (
           <div className="related__post_box" key={post._id}>
-          <Link><img src={post.thumbnail} alt="" /></Link>
+          <Link to={`/post/${post.slug}`}><img src={post.thumbnail} alt="" /></Link>
           <div className="related__post_info">
             <div className="related__post_info_top"><span>{post.category[0]}</span> <span>{post.date}</span></div>
             <div className="related__post_info_bottom">
-             <Link> <p>{post.title}</p></Link>
+             <Link to={`/post/${post.slug}`}> <p>{post.title}</p></Link>
               <p>{post.description}</p>
             </div>
           </div>
