@@ -35,8 +35,6 @@ const RelatedPost = ({postCategory, id}) => {
         </div>
         ))}
         
-        {/* <div className="related__post_box">post 2</div>
-        <div className="related__post_box">post 3</div> */}
       </div>
     </div>
   )
